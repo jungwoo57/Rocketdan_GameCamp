@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
             if (enemyBody[i].bodyCount < deadIndex)
             {
                 //enemyBody[i].bodyCount--
-                enemyBody[i].bodyCount++;
+                //enemyBody[i].bodyCount++;
                 enemyBody[i].transform.position =
                     enemyBody[i+1].transform.position;
             }
@@ -82,11 +82,10 @@ public class Enemy : MonoBehaviour
         bodyCounts--;
 
         // 머리 위치 정렬
-        /*
+        
         if (bodyCounts > 0)
         {
             int firstBody = 999;
-            int temp;
             for (int k = 0; k < enemyBody.Count; k++)
             {
                 if (!enemyBody[k].isDead)
@@ -98,6 +97,6 @@ public class Enemy : MonoBehaviour
                 }
             }
             enemyHead.transform.position = enemyBody[firstBody].transform.position;
-        }*/
+        }
     }
 }
