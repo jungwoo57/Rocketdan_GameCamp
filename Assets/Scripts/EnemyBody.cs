@@ -30,7 +30,9 @@ public class EnemyBody : MonoBehaviour
     private void BodyDie()
     {
         enemy.BodyDie(this);
+        isDead = true;
         this.gameObject.SetActive(false);
+        
     }
 
     private void BodyMove()

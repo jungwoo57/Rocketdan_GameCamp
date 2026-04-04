@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour
         // 뒤에 있는 몸통들 앞으로 당기기
         for (int i = 0; i < enemyBody.Count; i++)
         {
-            if (enemyBody[i].bodyCount < deadIndex)
+            if (enemyBody[i].bodyCount < deadIndex && !enemyBody[i].isDead)
             {
                 //enemyBody[i].bodyCount--
                 //enemyBody[i].bodyCount++;
