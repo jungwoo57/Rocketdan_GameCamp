@@ -80,6 +80,10 @@ public class Enemy : MonoBehaviour
         // 당기고 죽은 몸통 비활성화
         body.gameObject.SetActive(false);
         bodyCounts--;
+        if (bodyCounts <= 0)
+        {
+            GameOver();
+        }
 
         // 머리 위치 정렬
         
@@ -98,5 +102,10 @@ public class Enemy : MonoBehaviour
             }
             enemyHead.transform.position = enemyBody[firstBody].transform.position;
         }
+    }
+
+    public void GameOver()
+    {
+        StageManager.instance.GameOver(true);
     }
 }

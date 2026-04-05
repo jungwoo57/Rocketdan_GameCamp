@@ -37,6 +37,10 @@ public class EnemyBody : MonoBehaviour
 
     private void BodyMove()
     {
+        if (pathCount >= enemyPath.Count)
+        {
+            return;
+        }
         Vector3 dir = enemyPath[pathCount].position - transform.position;
         transform.position += dir.normalized * speed * Time.deltaTime;
         float distance = Vector3.Distance(transform.position,enemyPath[pathCount].transform.position);
@@ -45,6 +49,14 @@ public class EnemyBody : MonoBehaviour
             pathCount++;
         }
     }
-    
+
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            BodyDie();
+        }
+    }
     
 }

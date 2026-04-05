@@ -5,6 +5,10 @@ public class Player : MonoBehaviour
     public int damage;
     public int speed;
     public PlayerBullet bulletPrefab;
+    public float attackCoolTime;
+    public float currentCoolTime;
+    public Transform firePoint;
+    
     private Transform target;
     
     void Start()
@@ -16,6 +20,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        currentCoolTime += Time.deltaTime;
+        if(attackCoolTime <= currentCoolTime)
+        {
+            Attack();
+        }
     }
 
     private void Move()
@@ -28,7 +37,11 @@ public class Player : MonoBehaviour
     {
         if (!target)
         {
+            PlayerBullet playerBullet = BulletPoolManager.instance.Get();
+            playerBullet.Init(Vector3.up, damage, firePoint.position);
             // 총알 위로 발사
         }
+
+        currentCoolTime = 0;
     }
 }
