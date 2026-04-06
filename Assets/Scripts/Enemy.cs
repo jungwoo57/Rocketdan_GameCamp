@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     
     public int bodyCounts; // 몸통 갯수
     public float enemySpeed;
+    public float hardSpeed;
     public int enemyHp;
 
     private void Start()
@@ -36,8 +37,12 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (bodyCounts > 0)
+        
+        if (enemyBody.Count > 0)
         {
+            enemyHead.transform.position = enemyBody[0].transform.position;
+
+            /*
             int firstBody = 999;
             int temp;
             for (int k = 0; k < enemyBody.Count; k++)
@@ -51,7 +56,10 @@ public class Enemy : MonoBehaviour
                 }
             }
             enemyHead.transform.position = enemyBody[firstBody].transform.position;
+            */
         }
+        
+        
     }
 
     public void BodyDie(EnemyBody body)
@@ -90,7 +98,7 @@ public class Enemy : MonoBehaviour
         }
 
         // 머리 위치 정렬
-        
+        /*
         if (bodyCounts > 0)
         {
             int firstBody = 999;
@@ -105,7 +113,7 @@ public class Enemy : MonoBehaviour
                 }
             }
             enemyHead.transform.position = enemyBody[firstBody].transform.position;
-        }
+        }*/
     }
 
     public void GameOver()
@@ -117,7 +125,7 @@ public class Enemy : MonoBehaviour
     {
         for (int i = 0; i < enemyBody.Count; i++)
         {
-            enemyBody[i].GetComponent<EnemyBody>().speed *= 1.3f;
+            enemyBody[i].GetComponent<EnemyBody>().speed = hardSpeed;
         }
     }
 }

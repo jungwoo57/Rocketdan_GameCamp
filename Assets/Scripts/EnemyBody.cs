@@ -22,7 +22,7 @@ public class EnemyBody : MonoBehaviour
         {
             enemyPath.Add(StageManager.instance.enemyPath[i]);
         }
-        
+        hpText.transform.position = this.transform.position + Vector3.up * 0.5f;
         hpText.text = hp.ToString();
     }
 
@@ -37,7 +37,7 @@ public class EnemyBody : MonoBehaviour
     private void Update()
     {
         BodyMove();
-        hpText.transform.position = this.transform.position + Vector3.up * 0.5f;
+        //hpText.transform.position = this.transform.position + Vector3.up * 0.5f;
     }
 
     [ContextMenu("죽여보기")]

@@ -32,6 +32,11 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        CheckHardMode();
+    }
+
     public void StageInit()
     {
         isGameOver = false;
@@ -67,6 +72,16 @@ public class StageManager : MonoBehaviour
         isHard = true;
         enemy.HardMode();
         //enemy
-        
+    }
+    
+    // 하드 모드 위치 확인
+    private void CheckHardMode()
+    {
+        if (isHard) return;
+        float distance = Vector3.Distance(enemyPath[3].transform.position, enemy.enemyBody[0].transform.position);
+        if (distance <= 1f)
+        {
+            SetHardMode();
+        }
     }
 }
