@@ -9,14 +9,15 @@ public class StageManager : MonoBehaviour
     public Transform[] enemyPath;
     public Transform startPos;
 
-    public GameObject endLine;    
+    public GameObject endLine;
+    public Enemy enemy;
     
     public Enemy enemyPrefab;
     public Image winUI;
     public Image loseUI;
-    
-    
-    
+
+
+    private bool isHard = false;
     private bool isGameOver = false;
     private void Awake()
     {
@@ -58,7 +59,14 @@ public class StageManager : MonoBehaviour
         }
 
         Time.timeScale = 0;
+    }
+
+    public void SetHardMode()
+    {
+        if (isHard) return;
+        isHard = true;
+        enemy.HardMode();
+        //enemy
         
     }
-    
 }

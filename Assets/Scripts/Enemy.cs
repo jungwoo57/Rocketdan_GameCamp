@@ -5,9 +5,11 @@ public class Enemy : MonoBehaviour
     public GameObject enemyHead;
     public List<EnemyBody> enemyBody= new List<EnemyBody>();
     public EnemyBody bodyPrefab;
-    //public List<Transform> bodyTrasform = new List<Transform>();
+    
+    
     public int bodyCounts; // 몸통 갯수
-
+    public float enemySpeed;
+    public int enemyHp;
 
     private void Start()
     {
@@ -22,6 +24,8 @@ public class Enemy : MonoBehaviour
 
             newBody.bodyCount = i;
             newBody.enemy = this;
+            newBody.Init(i, (enemyHp + i) , enemySpeed, this);
+            
             Vector3 newBodyPos = transform.position + new Vector3(-i, 0, 0);
             newBody.transform.position = newBodyPos;
             //bodyTrasform.Add(newBody.transform);
@@ -46,7 +50,6 @@ public class Enemy : MonoBehaviour
                     }
                 }
             }
-
             enemyHead.transform.position = enemyBody[firstBody].transform.position;
         }
     }
@@ -79,6 +82,7 @@ public class Enemy : MonoBehaviour
         }
         // 당기고 죽은 몸통 비활성화
         body.gameObject.SetActive(false);
+        enemyBody.Remove(body);
         bodyCounts--;
         if (bodyCounts <= 0)
         {
@@ -107,5 +111,13 @@ public class Enemy : MonoBehaviour
     public void GameOver()
     {
         StageManager.instance.GameOver(true);
+    }
+
+    public void HardMode()
+    {
+        for (int i = 0; i < enemyBody.Count; i++)
+        {
+            enemyBody[i].GetComponent<EnemyBody>().speed *= 1.3f;
+        }
     }
 }

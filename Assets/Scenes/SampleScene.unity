@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec42d1456f9a26c4aa07dc7ba0d3f3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  damage: 3
+  damage: 7
   speed: 5
   bulletPrefab: {fileID: 0}
   attackCoolTime: 1
@@ -2288,6 +2288,14 @@ PrefabInstance:
     - target: {fileID: 40052053456556657, guid: 3cc945db7bbc85e409ddedeb7dba1350, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111717100218341718, guid: 3cc945db7bbc85e409ddedeb7dba1350, type: 3}
+      propertyPath: enemyHp
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111717100218341718, guid: 3cc945db7bbc85e409ddedeb7dba1350, type: 3}
+      propertyPath: enemySpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8455935821387142939, guid: 3cc945db7bbc85e409ddedeb7dba1350, type: 3}
       propertyPath: m_LocalPosition.x

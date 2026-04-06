@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
+
 public class EnemyBody : MonoBehaviour
 {
     public int bodyCount; // 몇번 째 몸통인지
     public int hp;
     public float speed;
+    public TextMeshProUGUI hpText;
     
     public Enemy enemy;
     public bool isDead;
@@ -19,11 +22,22 @@ public class EnemyBody : MonoBehaviour
         {
             enemyPath.Add(StageManager.instance.enemyPath[i]);
         }
+        
+        hpText.text = hp.ToString();
+    }
+
+    public void Init(int bodyCount, int hp, float speed, Enemy enemy)
+    {
+        this.bodyCount = bodyCount;
+        this.hp = hp;
+        this.speed = speed;
+        this.enemy = enemy;
     }
 
     private void Update()
     {
         BodyMove();
+        hpText.transform.position = this.transform.position + Vector3.up * 0.5f;
     }
 
     [ContextMenu("죽여보기")]
@@ -53,10 +67,16 @@ public class EnemyBody : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
+        UpdateHP();
         if (hp <= 0)
         {
             BodyDie();
         }
+    }
+
+    private void UpdateHP()
+    {
+        hpText.text = hp.ToString();
     }
     
 }
