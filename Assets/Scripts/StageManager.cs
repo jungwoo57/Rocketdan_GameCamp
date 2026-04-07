@@ -77,7 +77,14 @@ public class StageManager : MonoBehaviour
     // 하드 모드 위치 확인
     private void CheckHardMode()
     {
-        if (isHard) return;
+        if (isHard)
+        {
+            return;
+        }
+        if (enemy.enemyBody.Count <= 0)
+        {
+            return;
+        }		
         float distance = Vector3.Distance(enemyPath[3].transform.position, enemy.enemyBody[0].transform.position);
         if (distance <= 1f)
         {

@@ -41,22 +41,7 @@ public class Enemy : MonoBehaviour
         if (enemyBody.Count > 0)
         {
             enemyHead.transform.position = enemyBody[0].transform.position;
-
-            /*
-            int firstBody = 999;
-            int temp;
-            for (int k = 0; k < enemyBody.Count; k++)
-            {
-                if (!enemyBody[k].isDead)
-                {
-                    if (firstBody > enemyBody[k].bodyCount)
-                    {
-                        firstBody = enemyBody[k].bodyCount;
-                    }
-                }
-            }
-            enemyHead.transform.position = enemyBody[firstBody].transform.position;
-            */
+        
         }
         
         
@@ -82,8 +67,7 @@ public class Enemy : MonoBehaviour
         {
             if (enemyBody[i].bodyCount < deadIndex && !enemyBody[i].isDead)
             {
-                //enemyBody[i].bodyCount--
-                //enemyBody[i].bodyCount++;
+               
                 enemyBody[i].transform.position =
                     enemyBody[i+1].transform.position;
             }
@@ -97,23 +81,7 @@ public class Enemy : MonoBehaviour
             GameOver();
         }
 
-        // 머리 위치 정렬
-        /*
-        if (bodyCounts > 0)
-        {
-            int firstBody = 999;
-            for (int k = 0; k < enemyBody.Count; k++)
-            {
-                if (!enemyBody[k].isDead)
-                {
-                    if (firstBody > enemyBody[k].bodyCount)
-                    {
-                        firstBody = enemyBody[k].bodyCount;
-                    }
-                }
-            }
-            enemyHead.transform.position = enemyBody[firstBody].transform.position;
-        }*/
+      
     }
 
     public void GameOver()
