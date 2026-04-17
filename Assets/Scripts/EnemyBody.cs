@@ -13,7 +13,7 @@ public class EnemyBody : MonoBehaviour
     public Enemy enemy;
     public bool isDead;
     public List<Transform> enemyPath = new List<Transform>();
-    private int pathCount;
+    private int pathCount = 0;
     
     private void Start()
     {

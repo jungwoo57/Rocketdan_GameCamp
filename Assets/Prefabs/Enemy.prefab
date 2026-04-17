@@ -49,6 +49,9 @@ MonoBehaviour:
   enemyBody: []
   bodyPrefab: {fileID: 2556544480654441622, guid: b274b044fc7f96b48bb137975a95231b, type: 3}
   bodyCounts: 10
+  enemySpeed: 3
+  hardSpeed: 5
+  enemyHp: 0
 --- !u!1 &4070052015700869733
 GameObject:
   m_ObjectHideFlags: 0
